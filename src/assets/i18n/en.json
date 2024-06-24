@@ -1,0 +1,104 @@
+{
+  "CATEGORIES": "Categories",
+  "COURCES": "Courses",
+  "TEACHER": "Teacher",
+  "SGINUP": "sign up",
+  "SGIN": "sign",
+  "IN": "in",
+
+  "MASTER": "Mr.",
+  "GEOLOGY": "Geologist",
+  "CURRICULA": "Curricula",
+  "FIRST_TH": "First grade",
+  "SECOND_TH": "Second grade",
+  "THIRD_TH": "Third grade",
+  "PLATFORM_DESC": "Welcome to our educational platform. We are here to help you easily access all the information you need. Join us and not only will you continue to learn about physics, on the contrary, you will remain amazed and entertained as you discover the physics of our planet.",
+  "EXAMS": "Exams",
+  "FINAL": "final review",
+  "SECONDARY": "secondary",
+  "TUTOR_NAME": "Mr. Ali Muhammad",
+  "COURSE_DATE": "03/05/2024",
+  "COPLETE_GUIDE": "The entire curriculum",
+  "COPLETE_GUIDE_DESC": "Explanation and review of the geology curriculum from scratch",
+  "EGP": "EGP",
+  "COURSES_COUNT": "30 lessons",
+  "COMPLETE_COURSE": "course",
+  "COURSE":"Complete curriculum",
+  "CLASS":"Courses",
+  "COURSES":"Class",
+  "FREE":"lectures ",
+  "LECTURES":"Free",
+  "COMMING_SOON":"New lectures will be added soon",
+  "ALL_LECTURES":"All lectures",
+  "COPYRIGHT": "All content rights reserved to Mr.",
+  "FIND_US":"Find us",
+  "CALL_US":"Call us",
+  "MAIL_US":"Mail us",
+  "WELCOME": "Welcome to the  ",
+  "TO_SUBJECT":"physics platform",
+  "DETAILS":"Details",
+  "PLATFORM":"Manassa",
+  "CONTACTUS": "Connect with us",
+  "WELCOME2": "Welcome to the IT community",
+  "CHOOSE_PASSWORD": "Choose a password",
+  "PASSWORD_TOO_SIMPLE": "Too simple",
+  "PASSWORD_AVERAGE_COMPLEXITY": "Average complexity",
+  "PASSWORD_COMPLEX": "Complex password",
+  "PICK_PASSWORD": "Pick a password",
+  "SUGGESTIONS": "Suggestions",
+  "PASSWORD_RULES": {
+    "LOWERCASE": "At least one lowercase",
+    "UPPERCASE": "At least one uppercase",
+    "NUMERIC": "At least one numeric",
+    "MIN_CHARACTERS": "Minimum 8 characters"
+  },
+  "USERNAME": "User Name",
+  "EMAIL_REQUIRED": " Email is required",
+  "PASSWORD_REQUIRED": "password is required",
+  "USERNAME_REQUIRED": "Username required",
+  "WELCOME_BACK":"Welcome back",
+"ENTER_MAIL_AND_PASSWORD":"Enter your email and password to log in",
+"ENTER_EMAIL":"Enter Email Adress",
+"ENTER_PASSWORD":"password",
+"EMAIL_INVALID": "Enter a valid email address",
+"NEW_WITH_US":"New with us?",
+"SUBSCRIBE_NOW":"subscribe now",
+"WELCOME_TO_MANASA":"Welcome to the Manasa",
+"REGISTER_YOUR_INFO":"Register your personal data",
+"REGISTER":"Register",
+"HOUR":"Hour",
+"QUSETION":"Question",
+"BUY_NOW":"Buy now",
+"PAY_NOW": "Pay now",
+"COURSE_TIME":"The lecture will be available throughout the year",
+"HOURS_NUMBER":"75 Hours",
+"QUESTIONS_NUMBER":"44 Question",
+"WALLET": "wallet",
+"INSTAPAY":"InstaPay",
+"DISCOUNT":"Coupon",
+"APPLY":"Apply",
+"SHIPPING_RECEPT":"Shipping receipt",
+"PAID_SMOUNT":"The amount paid"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

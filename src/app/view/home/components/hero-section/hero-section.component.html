@@ -1,0 +1,71 @@
+<section class="banner-w3ls">
+<div class="container" >
+  <div class="row align-items-center">
+    <div class="col-lg-6 col-12">
+      <div class="featured-image ">
+        <owl-carousel-o [options]="customOptions" class="mb-6" >
+         <ng-container *ngFor="let slide of apiData">
+           <ng-template class="slide" carouselSlide [id]="slide.id">
+             <img [src]="slide.url" [alt]="slide.id" [title]="slide.id"  >
+           </ng-template>
+         </ng-container>
+
+       </owl-carousel-o>
+       </div>
+    </div>
+    <div class="col-lg-6 col-12">
+        <div class="details">
+          <h2 class="text-center">
+            <span class="welcom">{{ "WELCOME" | translate }}</span>
+            <span class="platform">{{ "TO_SUBJECT" | translate }}</span>
+          </h2>
+          <p class="text-center">{{ "PLATFORM_DESC" | translate }}</p>
+        </div>
+        <div class="social">
+          <ul class="social-icons1 mt-2">
+            <li>
+              <a href="#"><i class="fa-brands fa-facebook-f facebook "></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-youtube youtube" ></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-twitter twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-google-plus-g google"></i></a>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+
+<!-- <section class="banner-w3ls">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="container parent">
+      <div class="banner-agileits">
+        <h1>{{ "WELCOME" | translate }}</h1>
+        <h5 class="mt-3">{{ "PLATFORM_DESC" | translate }}</h5>
+        <ul class="social-icons1 mt-5">
+          <li>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section> -->

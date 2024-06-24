@@ -1,0 +1,23 @@
+@import '../../../../../assets/scss/colors';
+section{
+  padding-top: 100px;
+  min-height: 100vh;
+  .card{
+    border-radius: 20px;
+    .card-body{
+
+      h6{
+      .data{
+        color: gray;
+        font-size: 14px;
+        margin: 0 5px;
+      }
+      .link{
+        color: $primary-color;
+        margin: 0 5px;
+      }
+      }
+
+    }
+  }
+}

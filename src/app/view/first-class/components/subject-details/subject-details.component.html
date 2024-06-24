@@ -1,0 +1,10 @@
+<section class="pb-4 ">
+  <div class="container ">
+    <div class="row">
+      <h3 class="heading">{{"CONTENT" |translate}}</h3>
+      <div class="col-lg-4 col-md-6 col-12" *ngFor="let class of classes ">
+        <shared-card [Item]="class" baseRoute="/First/details"></shared-card>
+       </div>
+    </div>
+  </div>
+</section>

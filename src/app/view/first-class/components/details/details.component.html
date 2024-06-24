@@ -1,0 +1,80 @@
+<section class="details-section">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-md-8 col-12 mb-4">
+        <div *ngFor="let section of sections; let sIndex = index">
+          <div class="accordion " [id]="'accordionExample' + sIndex">
+            <div class="accordion-item">
+              <h2 class="accordion-header mb-0">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + sIndex" aria-expanded="true" [attr.aria-controls]="'collapse' + sIndex">
+                  {{ section.title}}
+                </button>
+              </h2>
+              <div [id]="'collapse' + sIndex" class="accordion-collapse collapse " [attr.data-bs-parent]="'#accordionExample' + sIndex">
+                <div class="accordion-body">
+                    <div *ngFor="let item of section.body; let bIndex = index" class="body-item d-flex justify-content-between align-items-center">
+                      <div class="title-body">
+                        <i class="fa-solid fa-circle-stop  icon" *ngIf="item.type == 'lesson'"></i>
+                        <i class="fa-solid fa-circle-question icon" *ngIf="item.type == 'question'"></i>
+                        <h5>{{ item.bodyTitle }}</h5>
+                      </div>
+                    <div class="right">
+                      <div class="time-body" *ngIf="item.type == 'lesson'">
+                        <p class="mb-0">
+                          <span>{{ item.time }} </span>
+                          <span> {{"HOUR" |translate}}</span>
+                        </p>
+                      </div>
+                      <div class="question-body" *ngIf="item.type == 'question'">
+                        <p class="mb-0">
+                          <span>{{ item.qustions }} </span>
+                          <span> {{"QUSETION" |translate}}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 tutor-card mb-4">
+        <div class="card">
+          <div class="course-image">
+            <img src="assets\images\classes/final.jpg" alt="" style="width: 100%; border-radius: 0.375rem;">
+          </div>
+            <div class="card-body">
+                <div class="course-details mt-2">
+                 <div class="title">
+                  <h1>جافاسكريبت</h1>
+                  <h1>500 {{"EGP" |translate}}</h1>
+                 </div>
+                <ul class="content">
+                  <li>
+                    <i class="fa-solid fa-calendar"></i>
+                    <span>{{"COURSE_TIME" |translate}}</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-clock"></i>
+                    <span>{{"HOURS_NUMBER" |translate}}</span>
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-person-circle-question"></i>
+                    <span>{{"QUESTIONS_NUMBER" |translate}}</span>
+                  </li>
+                </ul>
+                </div>
+                <div class=" mt-4">
+                  <div class="action-btns">
+                      <!-- <button class="details" >{{"BUY_NOW" |translate}}</button> -->
+                      <button class="btn payment-btn w-100 mt-3" [routerLink]="['/First/payment']">{{"PAY_NOW" | translate}}</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    </div>
+</section>

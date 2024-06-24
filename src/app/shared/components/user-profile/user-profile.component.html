@@ -1,0 +1,20 @@
+<div class="btn-group">
+  <div class="profile-img "  type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <img class="rounded-circle"  [src]="user.photoURL ?? '../../../../assets/images/image.png'"
+        width="40" height="40" loading="lazy" alt="">
+  </div>
+  <ul class="dropdown-menu dropmenu" style="position: absolute !important;width: 225px;">
+    <li>
+      <div class="dropdown-item d-flex align-items-center">
+        <img class="rounded-circle"  [src]="user.photoURL ?? '../../../../assets/images/image.png'" width="50" height="50"loading="lazy" alt="">
+        <span class="user-name">{{user.displayName}}</span>
+      </div>
+    </li>
+    <li class="d-flex justify-content-center mt-2">
+      <a class="dropdown-item dashbord" [routerLink]="['', 'auth','Profile']">{{"PROFILE" | translate}}</a>
+    </li>
+    <li class="d-flex justify-content-center mt-2 mb-3">
+      <span class="dropdown-item Sign-out " (click)="logout()" >{{"LOGOUT" | translate}}</span>
+    </li>
+  </ul>
+</div>

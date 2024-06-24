@@ -1,0 +1,126 @@
+
+<section class="sginup-section">
+  <div class="container d-flex justify-content-center align-items-center p-0 ">
+    <div class="row border round-5  shadow sginup-box-area">
+       <div class="col-12 left-box">
+        <div class="d-flex justify-content-center manasa-img mb-1">
+          <img src="assets/images/logo.png" alt="" loading="lazy">
+        </div>
+        <h4 class="wlcome-back text-center">{{"WELCOME_TO_MANASA" |translate}}</h4>
+        <p class="mail-pass  text-center">{{"REGISTER_YOUR_INFO" |translate}}</p>
+        <form [formGroup]="SginUpForm" (submit)="onSubmit()">
+            <div class="row align-items-center">
+                <div class="d-flex justify-content-evenly  align-items-center mb-2 mt-3">
+                  <label>
+                    <input type="radio" name="registerBy"
+                           [checked]="registerBy === 'phone'"
+                           (change)="onRegisterByChange('phone')">
+                    {{"PHONE" |translate}}
+                  </label>
+                  <label>
+                    <input type="radio" name="registerBy" value="email"
+                          [checked]="registerBy === 'email'"
+                          (change)="onRegisterByChange('email')">
+                    {{"ENTER_EMAIL" |translate}}
+                  </label>
+
+                </div>
+              <div class=" flex justify-content-center  align-items-center mb-2 mt-3 ">
+                    <p-iconField [iconPosition]="iconPosition">
+                      <p-inputIcon styleClass="pi pi-user" />
+                      <input type="text" formControlName="username" pInputText [placeholder]="'USERNAME' | translate" class="w-100 mb-1  username-input" />
+                  </p-iconField>
+                  <span class="erorr " *ngIf="SginUpForm.get('username')?.touched &&
+                      SginUpForm.get('username')?.hasError('required')">
+                    {{"USERNAME_REQUIRED" |translate}}
+                  </span>
+              </div>
+              <!--  -->
+              <div class=" flex justify-content-center  align-items-center mb-3 "  *ngIf="registerBy === 'email'">
+                    <p-iconField [iconPosition]="iconPosition">
+                      <p-inputIcon styleClass="pi pi-envelope" />
+                      <input   formControlName="email" type="email" pInputText [placeholder]="'ENTER_EMAIL' |translate" class="w-100 mb-1 mail-input" />
+                  </p-iconField>
+                    <span class="erorr " *ngIf="SginUpForm.get('email')?.touched &&
+                        SginUpForm.get('email')?.hasError('required')">
+                      {{"EMAIL_REQUIRED" |translate}}
+                    </span>
+                    <span class="erorr" *ngIf="SginUpForm.get('email')?.touched && SginUpForm.get('email')?.hasError('email')">
+                      {{ 'EMAIL_INVALID' | translate }}
+                    </span>
+             </div>
+             <div class=" flex justify-content-center  align-items-center mb-3 " *ngIf="registerBy === 'phone'">
+                      <p-iconField [iconPosition]="iconPosition">
+                        <p-inputIcon styleClass="pi pi-phone" />
+                        <input   formControlName="phone" type="number" pInputText [placeholder]="'ENTER_PHONE' |translate" class="w-100 mb-1 mail-input" />
+                    </p-iconField>
+                      <span class="erorr " *ngIf="SginUpForm.get('phone')?.touched &&
+                          SginUpForm.get('phone')?.hasError('required')">
+                        {{"PHONE_REQUIRED" |translate}}
+                      </span>
+                      <span class="erorr" *ngIf="SginUpForm.get('email')?.touched && SginUpForm.get('email')?.hasError('email')">
+                        {{ 'EMAIL_INVALID' | translate }}
+                      </span>
+              </div>
+
+             <div class="flex justify-content-center  mb-3">
+
+              <p-password formControlName="password"  [toggleMask]="true" class="input-primeng-pass mb-1" [promptLabel]="promptLabel"
+                [weakLabel]="weakLabel" [mediumLabel]="mediumLabel" [strongLabel]="strongLabel" [placeholder]="'ENTER_PASSWORD' |translate">
+
+                <ng-template pTemplate="footer">
+                  <p-divider></p-divider>
+                  <p class="mt-1">{{ 'SUGGESTIONS' | translate }}</p>
+                  <ul class="pl-1 ml-1 mt-0" style="font-size: 13px;">
+                    <li>{{ 'PASSWORD_RULES.LOWERCASE' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.UPPERCASE' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.NUMERIC' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.MIN_CHARACTERS' | translate }}</li>
+                  </ul>
+                </ng-template>
+
+              </p-password>
+                <span class="erorr " *ngIf="SginUpForm.get('password')?.touched &&
+                    SginUpForm.get('password')?.hasError('required')">
+                  {{"PASSWORD_REQUIRED" |translate}}
+                </span>
+            </div>
+            <div class="flex justify-content-center  mb-1">
+              <p-password formControlName="confirmPassword"  [toggleMask]="true" class="input-primeng-pass mb-1" [promptLabel]="promptLabel"
+                [weakLabel]="weakLabel" [mediumLabel]="mediumLabel" [strongLabel]="strongLabel" [placeholder]="'CONFIRM_PASSWORD' |translate">
+
+                <ng-template pTemplate="footer">
+                  <p-divider></p-divider>
+                  <p class="mt-1">{{ 'SUGGESTIONS' | translate }}</p>
+                  <ul class="pl-1 ml-1 mt-0" style="font-size: 13px;">
+                    <li>{{ 'PASSWORD_RULES.LOWERCASE' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.UPPERCASE' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.NUMERIC' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.MIN_CHARACTERS' | translate }}</li>
+                  </ul>
+                </ng-template>
+
+              </p-password>
+                <span class="erorr " *ngIf="SginUpForm.get('confirmPassword')?.touched &&
+                    SginUpForm.get('confirmPassword')?.hasError('required')">
+                  {{"CONFIRM_PASSWORD_REQUIRED" |translate}}
+                </span>
+                <span class="erorr" *ngIf="SginUpForm.hasError('passwordsMismatch') && SginUpForm.get('confirmPassword')?.touched
+                 && SginUpForm.get('confirmPassword')?.dirty">
+                  {{"PASSWORDS_DO_NOT_MATCH" | translate}}
+                </span>
+            </div>
+
+              <div class="input-group mb-3">
+                <button class="btn btn-lg btn-primary w-100 fs-6 mt-3 login-btnn" type="submit"
+                [disabled]="SginUpForm.invalid"
+                >{{"REGISTER" |translate}}</button>
+              </div>
+
+            </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,92 @@
+@import '../../../../assets/scss/colors';
+.dropmenu{
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  .dropdown-item{
+    text-align: start !important;
+    cursor: pointer;
+    .user-name{
+      font-size: 17px;
+      margin-right: 15px;
+      color: $black-color;
+
+    }
+  }
+}
+
+.user-profile{
+  justify-content: end;
+  .favorite{
+    cursor: pointer;
+    .favorite-count{
+      position: absolute;
+      background-color:$tomato-color ;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: -16px;
+      left: 20px;
+      font-size: 11px;
+    }
+    .bx-heart{
+      font-size: 30px;
+      color: black;
+    }
+  }
+  .cart{
+    cursor: pointer;
+    .cart-count{
+      position: absolute;
+      background-color:$tomato-color ;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: -15px;
+      left: 20px;
+      font-size: 11px;
+    }
+    .bxs-cart{
+      font-size: 30px;
+      color: black;
+    }
+  }
+
+
+  .dashbord, .Sign-out{
+    color: #1248A4;
+    font-size: 17px;
+    border: 1px solid #1248A4;
+    border-radius: 30px;
+    width: 98%;
+    text-align: center;
+    font-weight: 500;
+  }
+  .dashbord{
+    color: #1248A4;
+  }
+  .Sign-out{
+    color: $red-color;
+    cursor: pointer;
+  }
+  @media (min-width:991px) {
+    &{
+      justify-content: end;
+    }
+  }
+}
+
+@media (min-width:991px) {
+  .dropdown-menu{
+    left: 0 !important;
+    right: unset !important;
+  }
+}

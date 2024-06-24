@@ -1,0 +1,175 @@
+@import "../colors";
+html[dir="rtl"] {
+  .nav-container {
+    .navbar-brand {
+      img {
+        width: 40px;
+        transform: rotate(0) !important;
+        -webkit-transform: rotate(0) !important;
+        -moz-transform: rotate(0) !important;
+        -ms-transform: rotate(0) !important;
+        -o-transform: rotate(0) !important;
+      }
+    }
+  }
+  .auth-btns {
+    display: flex;
+    gap: 1rem;
+    .lineParent {
+      position: relative;
+    }
+    .login ,.logout{
+      transition: 0.3s all ease;
+      &:hover {
+        transform: translateY(-5px);
+
+      }
+    }
+    .signup {
+      transition: 0.3s all ease;
+      .regItem {
+        .regIcon {
+          width: 35px;
+          overflow: hidden;
+
+          transition: 0.2s all ease;
+        }
+        .regType {
+          color: #fff;
+          transition: 0.3s all ease;
+          font-weight: 700;
+        }
+      }
+      &:hover {
+        transform: translateY(-5px);
+        .regItem {
+          background: #688f79;
+        }
+        .regIcon {
+          transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+          -webkit-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+          -moz-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+          -ms-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+          -o-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+        }
+      }
+    }
+    @media (max-width: 500px) {
+      & {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  .curricula .dropdown-menu {
+    top: 100%;
+    right: 0 !important;
+  }
+
+
+/* complete course in home module  */
+.double-1 {
+  position: relative;
+  display: inline-block;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: black;
+  margin-top: 40px;
+  .complete{
+    color: black;
+  }
+  .course{
+    color:  $orangemain-color;
+  }
+  @media (max-width:500px) {
+    &{
+      font-size: 1.2rem;
+    }
+
+  }
+}
+
+/* class courses */
+.latestLectures {
+  /* padding: 10rem 0 10rem; */
+  position: relative;
+  min-height: 400px;
+  .layer3 {
+    position: absolute;
+    opacity: 0.1;
+    top: 115px;
+    left: -6rem;
+    right: unset !important;
+    width: 20rem;
+    transform: rotate(90deg) !important;
+    -webkit-transform: rotate(90deg) !important;
+    -moz-transform: rotate(90deg) !important;
+    -ms-transform: rotate(90deg) !important;
+    -o-transform: rotate(90deg) !important;
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: bottom;
+    }
+
+}
+}
+/* free courses component in home module */
+.freeLectures {
+  /* padding: 10rem 0 10rem; */
+  position: relative;
+  min-height: 400px;
+  .layer1, .layer2, .layer3, .layer4{
+    position: absolute;
+    width: 15rem;
+    opacity: 0.1;
+  }
+  .layer4 {
+    position: absolute;
+    opacity: 0.1;
+    top: 115px;
+    right: -7rem;
+    width: 20rem;
+    transform: rotate(-90deg) !important;
+    -webkit-transform: rotate(-90deg) !important;
+    -moz-transform: rotate(-90deg) !important;
+    -ms-transform: rotate(-90deg) !important;
+    -o-transform: rotate(-90deg) !important;
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: bottom;
+    }
+
+}
+}
+
+
+/* footer */
+.single-cta  {
+  .icon{
+    color: #ff5e14;
+  font-size: 30px;
+  float: right !important;
+  margin-top: 8px;
+  }
+  }
+  .cta-text {
+    padding-right: 15px;
+    display: inline-block;
+    }
+
+
+
+    /* login page in auth module */
+ /* details in first class module module */
+
+ .accordion-button::after {
+  position: absolute;
+  left: 20px;
+}
+
+
+}

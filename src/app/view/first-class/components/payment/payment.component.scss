@@ -1,0 +1,302 @@
+@import "../../../../../assets/scss/colors";
+$pay-primary: #15AF97;
+$pay-primary-2: #25788E;
+$pay-primary-rgba: 21,
+    175,
+    151,
+    0.25;
+$pay-primary-linear: 215.09deg,
+    #15AF97 14.58%,
+    #71E7D5 100.18%;
+$pay-primary-linear-2: (
+
+
+    9.95deg,
+    #15AF97 5.83%,
+    #FFFFFF 147.78%),
+    #F2F2F7;
+
+$pay-secondary: #22577A;
+$pay-secondary-2: #0166C0;
+$pay-success: #3DCC79;
+$pay-danger: #FB1B1C;
+$pay-black: #000000;
+$pay-overlay: 0,
+
+    0,
+    0,
+    0.7;
+$white: #fff;
+
+$pay-gray: #767676;
+$pay-gray-2: #777777;
+$pay-gray-3: #E6E6EF;
+$pay-gray-4: #F2F2F7;
+$pay-gray-5: #DCDCEA;
+
+$width: 152px;
+$Onewidth: 145px;
+/* Rectangle 3 */
+
+.btn-1 {
+  /*   background: #15af97; */
+    padding: 10px 20px;
+    background: $orangemain-color;
+    border-radius: 30px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.5s;
+    border-bottom: 1px solid $orangemain-color;
+}
+
+.btn-1:hover {
+    padding: 10px 20px;
+    background: #fff;
+    color: $orangemain-color;
+    text-decoration: none;
+}
+
+.btn-2 {
+    padding: 10px 20px;
+    background: #22577a;
+    border-radius: 30px;
+    transition: all 0.5s;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid #22577a;
+}
+
+
+
+
+
+/* end excel order file */
+
+section{
+  min-height: 100vh;
+  .container{
+    padding-top: 55px;
+  }
+}
+
+
+
+
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin: 5px 0 0 !important;
+}
+
+.invalid {
+    border: 2px red solid !important;
+}
+
+/* Step 3 */
+.pay-ways {
+    &.mt-40 {
+        margin-top: 40px;
+    }
+
+    margin-bottom: 48px;
+
+    .pay-select {
+
+        margin-inline: 10px;
+
+        label {
+            cursor: pointer;
+
+            &.active {
+                color: $orangemain-color;
+            }
+        }
+
+        .card {
+            height: 80px;
+            width: 127px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active {
+
+                border-color: $orangemain-color !important;
+
+            }
+        }
+    }
+}
+@media (max-width:500px) {
+    .pay-ways {
+        .pay-select {
+            .card {
+                width: 75px;
+            }
+            label{
+              font-size: 12px;
+              font-weight: 600;
+            }
+        }
+    }
+}
+
+.pay-form {
+    label {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        letter-spacing: 0em;
+        color: #000;
+        margin-bottom: 11px;
+    }
+
+    input {
+        background: #f2f2f7;
+        border: 1px solid #e6e6ef;
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -ms-border-radius: 25px;
+        -o-border-radius: 25px;
+        height: 50px;
+        text-indent: 10px;
+}
+
+    .mt-32 {
+        margin-top: 32px;
+    }
+
+    .visa-button {
+        .btn-1 {
+            height: 56px;
+            border-radius: 30px;
+            border: none;
+        }
+    }
+
+    &.coupon, &.receipt {
+        width: 640px;
+        max-width: 95%;
+        border-radius: 30px;
+        border: 1px solid rgba(119, 119, 119, 0.2);
+        padding: 32px 125px 32px;
+        margin-bottom: 35px;
+
+        @media (max-width: 767px) {
+            padding: 32px 18px 32px;
+        }
+    }
+    &.receipt{
+      .image{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        img{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid gray;
+            cursor: pointer;
+        }
+        .image-container{
+            position: relative;
+            .add-img{
+                position: absolute;
+                z-index: 3;
+                background: #13f113;
+                width: 25px;
+                height: 25px;
+                text-align: center;
+                line-height: 1;
+                top: 45%;
+                font-size: 20px;
+                left: -12px;
+                cursor: pointer;
+              }
+        }
+
+    }
+
+
+
+
+    }
+
+    &.cash-form {
+        width: 640px;
+        max-width: 100%;
+        border-radius: 30px;
+        border: 1px solid rgba(119, 119, 119, 0.2);
+        padding: 32px 125px 18px;
+        margin-bottom: 35px;
+        @media (max-width: 767px) {
+            padding: 32px 18px 18px;
+        }
+        .wallets-parent{
+          display: flex;
+          justify-content: space-evenly;
+          .fodavone,.etisalat{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            img{
+              width: 55px;
+            }
+          }
+        }
+        .instapay-parent{
+
+          .head{
+            display: flex;
+            justify-content: center;
+            img{
+              width: 110px;
+            }
+          }
+          .insta-details{
+            display: flex;
+            justify-content: space-around;
+            .phone ,.url{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 8px;
+              span{
+                color: $smoothGray-color;
+              }
+              .icon{
+                font-size: 25px;
+              }
+            }
+          }
+        }
+        // .cash-header {
+        //     .cash-title {
+        //         font-size: 16px;
+        //         font-weight: 500;
+        //         line-height: 19px;
+        //         color: #000;
+        //     }
+
+        //     .real-cash {
+        //         font-size: 16px;
+        //         font-weight: 700;
+        //         line-height: 19px;
+
+        //         color: $pay-primary;
+
+        //     }
+        // }
+    }
+}
+
+
+
+

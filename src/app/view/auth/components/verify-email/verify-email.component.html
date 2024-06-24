@@ -1,0 +1,32 @@
+<section>
+  <div
+  class="verify-email-container container mat-elevation-z5 p-5 col-12 col-md-6"
+>
+  <h1>Verify your email</h1>
+  <p>
+    Please check your email and click on the verification link to verify your
+    email address.
+  </p>
+
+  <div class="text-center">
+    <button
+      class="col-12 col-xl-8 mt-3 p-2"
+      mat-raised-button
+      color="primary"
+      (click)="resendVerificationEmail()"
+    >
+      Resend Verification Email
+    </button>
+
+    <button
+      class="col-12 col-xl-8 mt-3 p-2"
+      mat-raised-button
+      color="accent"
+      (click)="checkVerificationStatus()"
+    >
+      I've Verified My Email
+    </button>
+  </div>
+</div>
+
+</section>

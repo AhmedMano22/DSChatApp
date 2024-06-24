@@ -1,0 +1,353 @@
+<!-- <section class="pb-4 ">
+  <div class="container ">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <h3>{{"LATEST_APPOINTMENTS" |translate}}</h3>
+      </div>
+      <div class=" col-md-6 col-12 mb-3" *ngFor="let meeting of meetings ">
+        <div class="card" >
+          <div class="card-body">
+            <h6>
+              <span>{{"SUBJECT"|translate}} :</span>
+              <span class="data">{{meeting.Title}}</span>
+            </h6>
+             <h6>
+              <span>{{"CLASS_NUMBER"|translate}} :</span>
+              <span class="data">{{meeting.class}}</span>
+            </h6>
+            <h6>
+              <span>{{"TIMING"|translate}} :</span>
+              <span class="data">{{meeting.timing}}</span>
+            </h6>
+            <h6>
+              <span>{{"LINK"|translate}} :</span>
+                 <a class="link" [href]="meeting.zoom" target="_blank">{{meeting.zoom}}</a>
+            </h6>
+
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</section> -->
+<section>
+<div class="container chat-container mat-elevation-z5">
+  <div class="chat-list">
+    <div class="search-box" style="background-color: rgb(213, 194, 231)">
+      <div
+        class="chat-title d-flex"
+        style="justify-content: space-between; align-items: center"
+      >
+        <h1>Chats</h1>
+        <div class="d-flex">
+          <a mat-icon-button (click)="openUserList()">
+            <mat-icon>chat</mat-icon>
+          </a>
+          <i class="far fa-comment-alt" (click)="openUserList()"></i>
+          <img
+            src="../../../assets/images/chatIcon.gif"
+            alt="chat-logo"
+            style="height: 48px; width: 48px"
+          />
+        </div>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+          matInput
+          placeholder="Search chats"
+          [formControl]="searchControl"
+        />
+      </mat-form-field>
+    </div>
+
+    <mat-divider></mat-divider>
+    <ng-container *ngIf="user$ | async as currentUser">
+      <ul class="chat-list-items">
+        <li
+          class="chat-list-item"
+          [class.selected]="chat.id === selectedChatId"
+          *ngFor="let chat of filteredChats$ | async"
+          (click)="selectChat(chat.id)"
+        >
+          <img
+            class="chat-avatar"
+            [src]="
+              chat.chatPic ? chat.chatPic : '../../../assets/images/image.png'
+            "
+          />
+          <div class="chat-info">
+            <div class="chat-title">
+              <span class="chat-name">{{ chat.chatName }}</span>
+              <span class="chat-date">{{ chat.lastMessageDate | date }}</span>
+            </div>
+            <div class="chat-message">
+              {{ chat.lastMessage | slice : 0 : 33 }}
+            </div>
+            <span
+              class="unread-count"
+              *ngIf="
+                chat.unreadMessagesCount &&
+                chat.unreadMessagesCount[currentUser.uid] > 0
+              "
+            >
+              {{ chat.unreadMessagesCount[currentUser.uid] }}
+            </span>
+          </div>
+          <mat-divider></mat-divider>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+
+  <!-- <div class="chat-list">
+    <div class="search-box" style="background-color: rgb(213, 194, 231)">
+      <div
+        class="chat-title d-flex"
+        style="justify-content: space-between; align-items: center"
+      >
+        <h1>Chats</h1>
+        <img
+          src="../../../assets/images/chatIcon.gif"
+          alt="chat-logo"
+          style="height: 48px; width: 48px"
+        />
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+          matInput
+          placeholder="search users"
+          [formControl]="searchControl"
+          [matAutocomplete]="users"
+        />
+      </mat-form-field>
+      <mat-autocomplete #users="matAutocomplete">
+        <mat-option
+          *ngFor="let user of users$ | async"
+          (click)="createChat(user)"
+        >
+          {{ user?.displayName }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+
+    <mat-divider></mat-divider>
+    <ng-container *ngIf="user$ | async as currentUser">
+      <mat-selection-list
+        [multiple]="false"
+        class="chat_ListItems"
+        [formControl]="chatListControl"
+        [disableRipple]="true"
+      >
+        <mat-list-option
+          class="chatList-option"
+          *ngFor="let chat of myChats$ | async"
+          [value]="chat.id"
+
+        >
+          <img
+            matListItemAvatar
+            [src]="
+              chat.chatPic ? chat.chatPic : '../../../assets/images/image.png'
+            "
+          />
+          <p mat-line class="chat-title">
+            <span class="chat-name">{{ chat.chatName }}</span>
+            <span class="chat-date">{{ chat.lastMessageDate | date }}</span>
+          </p>
+          <p mat-line>{{ chat.lastMessage | slice : 0 : 11 }}</p>
+          <div class="item-divider w-100">
+            <mat-divider></mat-divider>
+          </div>
+        <span
+      class="unread-count"
+      *ngIf="
+        chat.unreadMessagesCount &&
+        chat.unreadMessagesCount[currentUser.uid] > 0
+      "
+    >
+      {{ chat.unreadMessagesCount[currentUser.uid] }}
+    </span> -->
+
+  <div class="messages">
+    <div
+      class="messages-header d-flex"
+      *ngIf="selectedChat$ | async as selectedChat; else noChatSelected"
+    >
+      <img
+        [src]="
+          selectedChat.chatPic
+            ? selectedChat.chatPic
+            : '../../../assets/images/image.png'
+        "
+        width="35"
+        height="35"
+        style="border-radius: 50%"
+      />
+      <h2>{{ selectedChat.chatName }}</h2>
+    </div>
+    <ng-template #noChatSelected>
+      <h2>Messages</h2>
+    </ng-template>
+    <mat-divider></mat-divider>
+
+    <div #chatContainer class="chat-area">
+      <ng-container *ngIf="user$ | async as currentUser">
+        <ng-container *ngIf="messages$ | async as messages">
+          <div
+            class="chat-bubble-container"
+            [ngClass]="{ sender: message.senderId === currentUser.uid }"
+            *ngFor="let message of messages"
+          >
+            <div
+              class="chat-bubble"
+              (contextmenu)="onRightClick($event, message)"
+            >
+              <div
+                class="chat-message"
+                *ngIf="message.text"
+                style="font-size: 16px"
+              >
+                {{ message.text }}
+              </div>
+              <img
+                class="chat-message"
+                *ngIf="message.imageUrl"
+                [src]="message.imageUrl"
+                style="max-width: 100%; height: auto"
+              />
+              <div class="chat-time">
+                <span *ngIf="message.edited" class="edited-badge"
+                  >(edited)</span
+                >
+                {{ message.date | date }}
+              </div>
+
+              <!-- Emoji Reactions -->
+              <div class="reactions">
+                <button (click)="toggleReactionsVisibility(message)">
+                  {{ getTotalReactionsCount(message) }}
+                  <!-- ya deepo here we display reactions images and if there are no any reactions then display default icon  -->
+                  <ng-container
+                    *ngIf="
+                      getUserReactionSvgPaths(message).length > 0;
+                      else defaultIcon
+                    "
+                  >
+                    <ng-container
+                      *ngFor="let svgPath of getUserReactionSvgPaths(message)"
+                    >
+                      <img
+                        [src]="svgPath"
+                        alt="reaction icon"
+                        width="24"
+                        height="24"
+                      />
+                    </ng-container>
+                  </ng-container>
+                  <ng-template #defaultIcon>
+                    <i class="bx bx-smile"></i>
+                  </ng-template>
+                </button>
+                <div *ngIf="message.showReactions" style="padding: 0 10px 10px">
+                  <span
+                    style="cursor: pointer; margin: 0 5px"
+                    *ngFor="let emoji of getAvailableReactions()"
+                    (click)="reactToMessage(message, emoji.name)"
+                  >
+                    <img
+                      [src]="emoji.svgPath"
+                      alt="reaction icon"
+                      width="24"
+                      height="24"
+                    />
+                  </span>
+                  <!-- dont remove the next comment -->
+                  <!-- ({{ getReactionCount(message, emoji.name) }}) -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div
+      class="context-menu"
+      [ngStyle]="contextMenuStyle"
+      *ngIf="showContextMenu"
+    >
+      <ng-container *ngIf="user$ | async as user">
+        <button
+          mat-menu-item
+          *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
+          (click)="editMessage()"
+        >
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        <button
+          mat-menu-item
+          *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
+          (click)="confirmDeleteMessage()"
+        >
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+      </ng-container>
+    </div>
+
+    <div class="input-area">
+      <mat-form-field class="w-100 d-flex" appearance="outline">
+        <input
+          matInput
+          placeholder="Enter your message..."
+          [formControl]="messageControl"
+          (keydown.enter)="sendMessage()"
+          class="input-field"
+        />
+        <div matSuffix class="button-group">
+          <ng-container *ngIf="isEditing">
+            <button mat-icon-button (click)="clearEditing()">
+              <mat-icon>clear</mat-icon>
+            </button>
+            <button mat-icon-button (click)="doneEditing()">
+              <mat-icon>done</mat-icon>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="!isEditing">
+            <button
+              mat-icon-button
+              (click)="toggleEmojiPicker($event)"
+              class="emoji-button"
+            >
+              <mat-icon>insert_emoticon</mat-icon>
+            </button>
+            <button mat-icon-button (click)="selectImage()">
+              <mat-icon>upload</mat-icon>
+            </button>
+            <button mat-icon-button (click)="sendMessage()">
+              <mat-icon>send</mat-icon>
+            </button>
+          </ng-container>
+        </div>
+        <input
+          type="file"
+          #imageInput
+          style="display: none"
+          (change)="uploadImage($event)"
+        />
+      </mat-form-field>
+      <div *ngIf="showEmojiPicker" class="emoji-picker">
+        <emoji-mart
+          set="facebook"
+          [darkMode]="false"
+          [emojiSize]="30"
+          (emojiClick)="addEmoji($event)"
+          [style.display]="showEmojiPicker ? 'block' : 'none'"
+          [style]="{ position: 'absolute', bottom: '80px', right: '20px' }"
+        ></emoji-mart>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

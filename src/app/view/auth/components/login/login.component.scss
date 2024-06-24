@@ -1,0 +1,139 @@
+@import "../../../../../assets/scss/colors";
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+.login-section{
+  min-height: 100vh;
+  display: flex;
+  // align-items: center;
+  padding-top: 70px;
+  background: #f7f7f7;
+}
+.container {
+  min-height: 100%;
+  .login-box-area {
+
+    background-color: $wightcolor;
+    height: 100%;
+    width: 100%;
+    max-width: 90%;
+    .left-box {
+      border-radius: 10px;
+      padding: 30px;
+      .manasa-img{
+        img{
+          width: 150px;
+          height: 150px;
+        }
+      }
+      .wlcome-back{
+        margin-bottom: 1rem;
+      }
+      .mail-pass{
+        color: #475467;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      form{
+        display: flex;
+        justify-content: center;
+        .row{
+          max-width: 60%;
+          width: 100%;
+          .mail-input{
+            border: none;
+            background-color: #f2f4f7;
+            text-indent: 30px;
+            padding: 15px;
+            outline: none;
+            border-radius: 50px;
+            width: 100%;
+            color: #667085;
+          }
+          .login-btnn {
+            background-color: transparent;
+            color: $dark-color;
+
+            border: 1px solid $orangemain-color;
+            border-radius: 50px;
+            font-weight: 500;
+            &:hover {
+              background-color: $orangemain-color;
+              color: $whitesmoke-color;
+            }
+          }
+          .new-student{
+            display: flex;
+            justify-content: center;
+            font-weight: 500;
+            span{
+              color: #667085;
+            }
+            a{
+              text-decoration: none;
+              margin: 0 10px;
+              color: #081420;
+            }
+          }
+          .erorr{
+            color: red;
+            font-size: 12px;
+          }
+          @media (max-width:768px) {
+            &{
+              max-width: 100%;
+              width: 100%;
+            }
+          }
+        }
+
+      }
+
+    }
+    @media only screen and (max-width: 768px) {
+      & {
+        margin: 0;
+          max-width: 100%;
+
+        .left-box {
+          padding: 20px !important;
+        }
+      }
+    }
+  }
+}
+
+
+::ng-deep .p-password{
+  width: 100%;
+  input{
+
+    margin-bottom: .25rem;
+    border: none;
+    background-color: #f2f4f7;
+    text-indent: 30px;
+    padding: 15px;
+    outline: none;
+    border-radius: 50px;
+    width: 100%;
+    color: #667085;
+  }
+  &::after {
+    content: url("../../../../../assets/images/auth/pass.png");
+    position: absolute;
+    left: 10px;
+    top: 57%;
+    transform: translateY(-50%);
+    z-index: 999;
+    width: 17px;
+  }
+}
+
+
+::ng-deep .p-icon-field{
+  width: 100% !important;
+}
+::ng-deep .p-icon-field-right .p-input-icon:last-of-type{
+  right: 1.3rem !important;
+}

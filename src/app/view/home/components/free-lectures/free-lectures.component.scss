@@ -1,0 +1,126 @@
+@import "../../../../../assets/scss/colors";
+.freeLectures {
+  /* padding: 10rem 0 10rem; */
+  position: relative;
+  min-height: 400px;
+  .layer1, .layer2, .layer3, .layer4{
+    position: absolute;
+    width: 15rem;
+    opacity: 0.1;
+  }
+  .layer4 {
+    position: absolute;
+    opacity: 0.1;
+    top: 115px;
+    left: -6rem;
+    width: 20rem;
+    transform: rotate(90deg);
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: bottom;
+    }
+    @media (max-width:768px) {
+      &{
+        display: none;
+      }
+
+    }
+  }
+
+  .double-1 {
+    position: relative;
+    display: inline-block;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: black;
+    margin-top: 40px;
+    .complete{
+      color: $orangemain-color;
+    }
+    .course{
+      color: black;
+    }
+    @media (max-width:500px) {
+      &{
+        font-size: 1.2rem;
+      }
+
+    }
+  }
+
+  .double-1::before,
+  .double-1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: $orangemain-color;
+    transform: translateX(-50%);
+    transition: width 0.5s ease;
+  }
+
+  .double-1::before {
+    bottom: -14px;
+    animation: expandContract 2s infinite;
+  }
+
+  .double-1::after {
+    bottom: -20px;
+    animation: expandContractReverse 2s infinite;
+  }
+
+  @keyframes expandContract {
+    0%, 100% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+  }
+
+  @keyframes expandContractReverse {
+    0%, 100% {
+      width: 100%;
+    }
+    50% {
+      width: 0;
+    }
+  }
+
+  .double-1:hover::before,
+  .double-1:hover::after {
+    width: 100%;
+  }
+
+  .parent-content{
+    .noLectures{
+      font-size: 1.6rem;
+      color: #44594d;
+      text-align: center;
+      width: 100%;
+      margin: 5rem 0 0;
+    }
+    .allLecturesBtn {
+      background: transparent;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.2rem;
+      color: #d7510c;
+      font-weight: 600;
+      transition: 0.3s all ease;
+      border-radius: 1rem;
+      border: 2px solid #d7510c;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      &:hover {
+        color: #fff;
+        background: #d7510c;
+    }
+  }
+
+  }
+
+}

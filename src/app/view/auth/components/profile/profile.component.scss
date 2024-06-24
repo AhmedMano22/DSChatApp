@@ -1,0 +1,39 @@
+section{
+  padding-top: 100px !important;
+  min-height: 100vh;
+
+
+}
+.profile-container {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+  }
+  .profile-image {
+    position: relative;
+    padding-bottom: 1rem;
+    img {
+      border-radius: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    button {
+      position: absolute;
+      bottom: 22px;
+      left: 35%;
+      cursor: pointer;
+      background-color: blueviolet;
+      color: #fff;
+      font-size: 12px;
+
+    }
+  }
+  .profile-form {
+    .profile-form-button {
+      background-color: blueviolet;
+      color: #fff;
+    }
+  }
+}

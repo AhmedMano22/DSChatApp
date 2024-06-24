@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Uploading/ Preview Image</h1>
+<div mat-dialog-content>
+  <mat-progress-bar
+    mode="determinate"
+    [value]="uploadProgress"
+  ></mat-progress-bar>
+  <div *ngIf="loading">Uploading...</div>
+  <div *ngIf="(imageUrl && loading) || !loading">
+    <img
+      [src]="imageUrl"
+      alt="Image preview"
+      style="max-width: 300px; max-height: 300px; margin-top: 10px"
+    />
+  </div>
+  <mat-form-field appearance="outline" *ngIf="!loading" class="w-100 pt-3">
+    <mat-label>Caption</mat-label>
+    <input matInput [(ngModel)]="caption" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()" [disabled]="loading">Cancel</button>
+  <button mat-button (click)="onSend()" [disabled]="loading">Send</button>
+</div>

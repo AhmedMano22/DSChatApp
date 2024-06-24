@@ -1,0 +1,138 @@
+{
+  "CATEGORIES": "الفئات",
+  "COURCES": "الدورات ",
+  "TEACHER": "مُعَلِّمٌ",
+  "SGININ": "تسجيل الدخول",
+  "SGINUP": " سجل حساب ",
+  "SGIN": "تسجيل ",
+  "IN": "الدخول",
+  "MASTER": "مستر",
+  "GEOLOGY": "جيولوجي",
+  "CURRICULA": "المناهج",
+  "FIRST_TH": "الصف الاول",
+  "SECOND_TH": "الصف الثاني",
+  "THIRD_TH": "الصف الثالث",
+
+  "PLATFORM_DESC": "اهلا بيك في منصتنا التعليمية, احنا هنا عشان نساعدك توصل لكل المعلومات الي محتاجها بسهوله ،انضم لينا و مش بس هتبقي بتتعلم عن الفيزياء بالعكس هتبقي منبهر و مستمتع وانت بستكتشف فيزياء كوكبنا",
+  "EXAMS": "الامتحانات",
+  "FINAL": "المراجهة النهائية",
+  "SECONDARY": "ثانوي",
+  "TUTOR_NAME": "أ/علي محمد",
+  "COURSE_DATE": "05/03/2024",
+  "COPLETE_GUIDE": "المنهج بالكامل",
+  "COPLETE_GUIDE_DESC": "شرح ومراجعة منهج الجيولوجيا من الصفر",
+  "EGP": "ج.م",
+  "COURSES_COUNT": "30 درس",
+  "COMPLETE_COURSE": "المنهج كامل",
+  "COURSE":"كورس",
+  "CLASS":"الفصول",
+  "COURSES":"كورسات ",
+  "FREE":"المجانية",
+  "LECTURES":"المحاضرات",
+  "COMMING_SOON":"سيتم إضافة محاضرات جديدة قريبًا",
+"ALL_LECTURES":" كل المحاضرات",
+"COPYRIGHT": "جميع حقوق المحتوى محفوظة لمستر ",
+"FIND_US":"العنوان",
+"CALL_US":"اتصل بنا",
+"MAIL_US":"راسلنا",
+"WELCOME": "مرحبا في  ",
+"TO_SUBJECT":"منصة الفيزياء",
+"DETAILS":"تفاصيل",
+"PLATFORM":"المنصة",
+"Q_A": "سؤال وجواب",
+"CONTACTUS": "تواصل معنا",
+"WELCOME2": "أهلاً بك في مجتمع تكنولوجيا المعلومات",
+"CHOOSE_PASSWORD": "اختر كلمة مرور",
+"PASSWORD_TOO_SIMPLE": "بسيطة جدًا",
+"PASSWORD_AVERAGE_COMPLEXITY": "تعقيد متوسط",
+"PASSWORD_COMPLEX": "كلمة مرور معقدة",
+"PICK_PASSWORD": "اختر كلمة مرور",
+"SUGGESTIONS": "اقتراحات",
+"PASSWORD_RULES": {
+  "LOWERCASE": "على الأقل حرف صغير واحد",
+  "UPPERCASE": "على الأقل حرف كبير واحد",
+  "NUMERIC": "على الأقل رقم واحد",
+  "MIN_CHARACTERS": "الحد الأدنى ٨ أحرف"
+},
+"USERNAME": "اسم المستخدم",
+"EMAIL_REQUIRED": "البريد الالكتروني مطلوب",
+"PASSWORD_REQUIRED": "كلمة المرور مطلوبة",
+"USERNAME_REQUIRED": "اسم المستخدم مطلوب",
+"WELCOME_BACK":"أهلا بيك من جديد",
+"ENTER_MAIL_AND_PASSWORD":"ادخل البريد الالكتروني وكلمة المرور للدخول",
+"ENTER_EMAIL":"البريد الالكتروني",
+"ENTER_PASSWORD":"كلمة السر",
+"CONFIRM_PASSWORD":" تأكيد كلمة السر",
+"EMAIL_INVALID":"أدخل عنوان بريد إلكتروني صالح",
+"NEW_WITH_US":"جديد معانا ؟",
+"SUBSCRIBE_NOW":"اشترك الأن",
+"WELCOME_TO_MANASA":"أهلا بيك في المنصة",
+"REGISTER_YOUR_INFO":"سجل بياناتك الشخصية",
+"REGISTER":"تسجيل",
+"HOUR":"ساعة",
+"QUSETION":"سؤال",
+"BUY_NOW":" شراء الأن",
+"PAY_NOW": "ادفع الان",
+"COURSE_TIME":"المحاضرة ستكون متاحة طول العام",
+"HOURS_NUMBER":"75 ساعة",
+"QUESTIONS_NUMBER":"44 سؤال",
+"WALLET": "المحفظة",
+"INSTAPAY":"انستا باي",
+"DISCOUNT":"كود الخصم",
+"APPLY":"تفعيل",
+"SHIPPING_RECEPT":"ايصال الشحن",
+"PAID_SMOUNT":"ادخل المبلغ المدفوع",
+"ENTER_MONEY":"ادخل المبلغ المدفوع",
+"ENTER_COUPON":"ادخل كود الخصم",
+"SEND":"ارسال",
+"RECIPT_IMAGE":"صورة الايصال",
+"ENTER_IMAGE":"رجاء ادخال صورة الايصال",
+"ENTER_DISCOUNT":"ادخل كود الخصم",
+"PLEAZE_ATTACH":"رجاء ارسال صورة ايصال عملية الدفع بعد اتمام العمليه",
+"PHONE":"رقم الهاتف",
+"ENTER_PHONE":"ادخل رقم الهاتف",
+"PHONE_REQUIRED":"رجاء ادخال رقم الهاتف",
+"ENTER_PHONE_AND_PASSWORD":"ادخل رقم الهاتف وكلمة المرور للدخول",
+"POSTS":"المنشورات",
+"MMEINGS":"اللقاءات",
+"CLASS_NUMBER":"الفصل",
+"SUBJECT":"الموضوع",
+"LINK":"رابط الاجتماع",
+"TIMING":"التوقيت",
+"LATEST_APPOINTMENTS":"أحدث المواعيد",
+"MATERIALS":"المواد",
+"CONTENT":"المحتوي",
+"CONFIRM_PASSWORD_REQUIRED": " تأكيد كلمة المرور مطلوبة ",
+"PASSWORDS_DO_NOT_MATCH":"يجب تطابق كلمة المرور وتاكيد كلمة المرور",
+"PROFILE":"الملف الشخصي",
+"LOGOUT":"تسجيل الخروج",
+"EDIT":"تعديل",
+"F_NAME":"الاسم الاول",
+"L_NAME":"الاسم الثاني",
+"DISPLAYED_NAEM":"الاسم المعروض",
+"PHONE_NUMBER":"رقم الهاتف",
+"ADRESS":"العنوان",
+"SAVE":"حفظ"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,95 @@
+
+<section class="login-section">
+  <div class="container d-flex justify-content-center align-items-center p-0 ">
+    <div class="row border round-5  shadow login-box-area">
+       <div class="col-12 left-box">
+        <div class="d-flex justify-content-center manasa-img mb-1">
+          <img src="assets/images/logo.png" alt="" loading="lazy">
+        </div>
+        <h4 class="wlcome-back text-center">{{"WELCOME_BACK" |translate}}</h4>
+        <p class="mail-pass  text-center" *ngIf="registerBy === 'email'">{{"ENTER_MAIL_AND_PASSWORD" |translate}}</p>
+        <p class="mail-pass  text-center"  *ngIf="registerBy === 'phone'">{{"ENTER_PHONE_AND_PASSWORD" |translate}}</p>
+        <form [formGroup]="loginForm" (submit)="onSubmit()">
+            <div class="row align-items-center">
+              <div class="d-flex justify-content-evenly  align-items-center mb-4 mt-3">
+                <label>
+                  <input type="radio" name="registerBy"
+                         [checked]="registerBy === 'phone'"
+                         (change)="onRegisterByChange('phone')">
+                  {{"PHONE" |translate}}
+                </label>
+                <label>
+                  <input type="radio" name="registerBy" value="email"
+                        [checked]="registerBy === 'email'"
+                        (change)="onRegisterByChange('email')">
+                  {{"ENTER_EMAIL" |translate}}
+                </label>
+
+              </div>
+
+             <div class=" flex justify-content-center  align-items-center mb-3 "  *ngIf="registerBy === 'email'">
+              <p-iconField [iconPosition]="iconPosition">
+                <p-inputIcon styleClass="pi pi-envelope" />
+                <input   formControlName="email" type="email" pInputText [placeholder]="'ENTER_EMAIL' |translate" class="w-100 mb-1 mail-input" />
+            </p-iconField>
+              <span class="erorr " *ngIf="loginForm.get('email')?.touched &&
+                  loginForm.get('email')?.hasError('required')">
+                {{"EMAIL_REQUIRED" |translate}}
+              </span>
+              <span class="erorr" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')">
+                {{ 'EMAIL_INVALID' | translate }}
+              </span>
+       </div>
+       <div class=" flex justify-content-center  align-items-center mb-3 " *ngIf="registerBy === 'phone'">
+                <p-iconField [iconPosition]="iconPosition">
+                  <p-inputIcon styleClass="pi pi-phone" />
+                  <input   formControlName="phone" type="number" pInputText [placeholder]="'ENTER_PHONE' |translate" class="w-100 mb-1 mail-input" />
+              </p-iconField>
+                <span class="erorr " *ngIf="loginForm.get('phone')?.touched &&
+                    loginForm.get('phone')?.hasError('required')">
+                  {{"PHONE_REQUIRED" |translate}}
+                </span>
+                <span class="erorr" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')">
+                  {{ 'EMAIL_INVALID' | translate }}
+                </span>
+        </div>
+
+             <div class="flex justify-content-center  mb-1">
+
+              <p-password formControlName="password"  [toggleMask]="true" class="input-primeng-pass mb-1" [promptLabel]="promptLabel"
+                [weakLabel]="weakLabel" [mediumLabel]="mediumLabel" [strongLabel]="strongLabel" [placeholder]="'ENTER_PASSWORD' |translate">
+
+                <ng-template pTemplate="footer">
+                  <p-divider></p-divider>
+                  <p class="mt-1">{{ 'SUGGESTIONS' | translate }}</p>
+                  <ul class="pl-1 ml-1 mt-0" style="font-size: 13px;">
+                    <li>{{ 'PASSWORD_RULES.LOWERCASE' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.UPPERCASE' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.NUMERIC' | translate }}</li>
+                    <li>{{ 'PASSWORD_RULES.MIN_CHARACTERS' | translate }}</li>
+                  </ul>
+                </ng-template>
+
+              </p-password>
+                <span class="erorr " *ngIf="loginForm.get('password')?.touched &&
+                    loginForm.get('password')?.hasError('required')">
+                  {{"PASSWORD_REQUIRED" |translate}}
+                </span>
+            </div>
+
+              <div class="input-group mb-3">
+                <button class="btn btn-lg btn-primary w-100 fs-6 mt-3 login-btnn" type="submit"
+
+                >{{"SGININ" |translate}}</button>
+              </div>
+              <div class="new-student">
+                <span >{{"NEW_WITH_US" |translate}}</span>
+                <a [routerLink]="['', 'auth', 'Signup']" >{{"SUBSCRIBE_NOW" |translate}}</a>
+              </div>
+            </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</section>
+

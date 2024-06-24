@@ -1,0 +1,242 @@
+@import "../../../../../assets/scss/colors";
+
+.banner-w3ls {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .container{
+    margin-top: 70px;
+    @media (max-width:430px) {
+     &{
+      margin-top: 0;
+     }
+    }
+    .featured-image{
+      // padding-bottom: 40px;
+     @media (max-width:991px)and (min-width:768px) {
+      &{
+        padding-top: 25px;
+        // padding-bottom: 40px;
+      }
+     }
+    }
+    .details{
+      .platform{
+        color: $orangemain-color;
+        margin: 0 5px;
+      }
+    }
+    .social{
+      .social-icons1 {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .social-icons1 li {
+        margin: 0 10px;
+      }
+
+      .social-icons1 li a {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all ease-in-out 0.5s;
+        -webkit-transition: all ease-in-out 0.5s;
+        -moz-transition: all ease-in-out 0.5s;
+        -ms-transition: all ease-in-out 0.5s;
+        -o-transition: all ease-in-out 0.5s;
+        .facebook{
+          color: blue;
+        }
+        .youtube{
+          color: red;
+        }
+        .twitter{
+          color: #1C9CEA;
+        }
+        .google{
+          color: #D64937;
+        }
+        &:hover {
+            background-color: $wightcolor;
+            transform: rotate(360deg) scale(1.2);
+        }
+
+      }
+
+      .social-icons1 li a:hover {
+        color: #ddd;
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /* Ensure the body and html take up the full height */
+// html,
+// body {
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// .banner-w3ls {
+//   position: relative;
+//   width: 100%;
+//   height: 100vh; /* Full screen height */
+//   background-color: #eee;
+//   // background: url("../../../../../assets/images/students.jpg") no-repeat center
+//   //   center/cover;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .overlay {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(0, 0, 0, 0.6); /* Adjust transparency */
+// }
+
+// .content {
+//   position: relative;
+//   z-index: 1;
+// }
+// .parent {
+//   display: flex;
+//   justify-content: center;
+//   .banner-agileits {
+//     width: 70%;
+//     text-align: center;
+//     color: white;
+//     @media (max-width: 500px) {
+//       & {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
+
+
+
+// .clip-path-container {
+//   position: relative;
+//   width: 400px; /* Adjust width as needed */
+//   height: 400px; /* Adjust height as needed */
+//   /* Apply clip-path */
+//   clip-path: circle(35.7% at 50% 50%);
+// }
+
+// .clip-path-container img {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover; /* Ensure the image covers the clipped area */
+//   /* Apply the same clip-path to the image */
+//   clip-path: circle(35.7% at 50% 50%);
+// }

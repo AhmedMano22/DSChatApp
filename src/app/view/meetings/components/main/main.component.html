@@ -1,0 +1,36 @@
+<section class="pb-4 ">
+  <div class="container ">
+    <div class="row">
+      <div class="col-12 mb-4">
+        <h3>{{"LATEST_APPOINTMENTS" |translate}}</h3>
+      </div>
+      <div class=" col-md-6 col-12 mb-3" *ngFor="let meeting of meetings ">
+        <div class="card" >
+          <div class="card-body">
+            <h6>
+              <span>{{"SUBJECT"|translate}} :</span>
+              <span class="data">{{meeting.Title}}</span>
+            </h6>
+             <h6>
+              <span>{{"CLASS_NUMBER"|translate}} :</span>
+              <span class="data">{{meeting.class}}</span>
+            </h6>
+            <h6>
+              <span>{{"TIMING"|translate}} :</span>
+              <span class="data">{{meeting.timing}}</span>
+            </h6>
+            <h6>
+              <span>{{"LINK"|translate}} :</span>
+                 <a class="link" [href]="meeting.zoom" target="_blank">{{meeting.zoom}}</a>
+            </h6>
+            <!-- <h6>
+
+              <a class="data">{{meeting.class}}</ش>
+            </h6> -->
+            <!-- <p class="card-text">{{meeting.description}}</p> -->
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+html[dir=rtl] .nav-container .navbar-brand img {
+  width: 40px;
+  transform: rotate(0) !important;
+  -webkit-transform: rotate(0) !important;
+  -moz-transform: rotate(0) !important;
+  -ms-transform: rotate(0) !important;
+  -o-transform: rotate(0) !important;
+}
+html[dir=rtl] .auth-btns {
+  display: flex;
+  gap: 1rem;
+}
+html[dir=rtl] .auth-btns .lineParent {
+  position: relative;
+}
+html[dir=rtl] .auth-btns .login {
+  transition: 0.3s all ease;
+}
+html[dir=rtl] .auth-btns .login .regItem .regIcon {
+  width: 35px;
+  overflow: hidden;
+  transition: 0.2s all ease;
+}
+html[dir=rtl] .auth-btns .login .regItem .regIcon img {
+  transform: rotateY(0deg) !important;
+  -webkit-transform: rotateY(0deg) !important;
+  -moz-transform: rotateY(0deg) !important;
+  -ms-transform: rotateY(0deg) !important;
+  -o-transform: rotateY(0deg) !important;
+}
+html[dir=rtl] .auth-btns .login .regItem .regType {
+  color: #000000;
+}
+html[dir=rtl] .auth-btns .login .regItem .regType span {
+  color: #ffb234;
+}
+html[dir=rtl] .auth-btns .login:hover {
+  transform: translateY(-5px);
+}
+html[dir=rtl] .auth-btns .login:hover .regItem {
+  border-color: #ffb234;
+}
+html[dir=rtl] .auth-btns .login:hover .regIcon {
+  transform: translateY(-0.2rem) rotate(13deg) scale(1) !important;
+  -webkit-transform: translateY(-0.2rem) rotate(13deg) scale(1) !important;
+  -moz-transform: translateY(-0.2rem) rotate(13deg) scale(1) !important;
+  -ms-transform: translateY(-0.2rem) rotate(13deg) scale(1) !important;
+  -o-transform: translateY(-0.2rem) rotate(13deg) scale(1) !important;
+}
+html[dir=rtl] .auth-btns .signup {
+  transition: 0.3s all ease;
+}
+html[dir=rtl] .auth-btns .signup .regItem .regIcon {
+  width: 35px;
+  overflow: hidden;
+  transition: 0.2s all ease;
+}
+html[dir=rtl] .auth-btns .signup .regItem .regType {
+  color: #fff;
+  transition: 0.3s all ease;
+  font-weight: 700;
+}
+html[dir=rtl] .auth-btns .signup:hover {
+  transform: translateY(-5px);
+}
+html[dir=rtl] .auth-btns .signup:hover .regItem {
+  background: #688f79;
+}
+html[dir=rtl] .auth-btns .signup:hover .regIcon {
+  transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+  -webkit-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+  -moz-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+  -ms-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+  -o-transform: translateY(-0.2rem) rotate(13deg) scale(1.1) !important;
+}
+@media (max-width: 500px) {
+  html[dir=rtl] .auth-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+}/*# sourceMappingURL=style.css.map */

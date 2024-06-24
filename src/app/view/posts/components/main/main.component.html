@@ -1,0 +1,28 @@
+<section class="pb-4 ">
+  <div class="container ">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12 mb-3" *ngFor="let post of posts">
+        <div class="card">
+            <div class="course-image">
+                <img [src]="post.content_image"  alt="" style="width: 100%; border-radius: 0.375rem;">
+              </div>
+            <div class="card__body">
+              <p class="mb-0">{{post.content}}</p>
+            </div>
+            <div class="card__footer d-flex justify-content-between">
+              <div class="user">
+                <img [src]="post.user_image" alt="user__image" class="user__image">
+                <div class="user__info">
+                  <h5>{{post.user}}</h5>
+                  <small>{{post.time}}</small>
+                </div>
+              </div>
+              <div class="action-btns">
+                <button class="details">{{"DETAILS" |translate}}</button>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+  </div>
+</section>

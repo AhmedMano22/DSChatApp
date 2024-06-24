@@ -1,0 +1,127 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" style="    padding-top: 55px;
+      text-align: center;">
+        <h6 class="fw-bold">{{"PLEAZE_ATTACH" |translate}}</h6>
+      </div>
+      <div class="col-12">
+        <div class="row p-0 m-0 flex-column align-items-center">
+
+          <div class="d-flex pay-ways mt-40 justify-content-center">
+            <div class="pay-select">
+              <div class="d-flex gap-2 mb-3 justify-content-center">
+                <label [class.active]="active1" for="wallet">{{"WALLET" |translate}}</label>
+              </div>
+              <label for="wallet" (click)="case1()" [class.active]="active1" class="card border">
+                <img width="41px" height="37px" src="assets/images/payment/wallet-2.png" alt="">
+              </label>
+            </div>
+            <div class="pay-select">
+              <div class="d-flex gap-2 mb-3 justify-content-center">
+                <label [class.active]="active2" for="tamara">{{"INSTAPAY" |translate}}</label>
+              </div>
+              <label for="tamara" (click)="case2()" [class.active]="active2" class="card border">
+                <img width="64" height="29" src="assets/images/payment/instapay.jpg" alt="">
+              </label>
+            </div>
+            <div class="pay-select">
+              <div class="d-flex gap-2 mb-3 justify-content-center">
+                <label [class.active]="active3" for="mastercard">{{"DISCOUNT" |translate}}</label>
+              </div>
+              <label for="mastercard" (click)="case3()" [class.active]="active3" class="card border">
+                <img width="54" height="54" src="assets/images/payment/copon.png" alt="">
+              </label>
+            </div>
+            <div class="pay-select">
+              <div class="d-flex gap-2 mb-3 justify-content-center">
+                <label [class.active]="active4" for="receipt">{{"SHIPPING_RECEPT" |translate}}</label>
+              </div>
+              <label for="receipt" (click)="case4()" [class.active]="active3" class="card border">
+                <img width="54" height="54" src="assets/images/payment/receipt.png" alt="">
+              </label>
+            </div>
+
+
+          </div>
+
+          <div class="pay-form cash-form" *ngIf="active1">
+            <div class="wallets-parent">
+              <div class="fodavone">
+                <img src="assets/images/payment/fodavone.png" alt="">
+                <span class="fw-bold">01067392153</span>
+              </div>
+              <div class="etisalat">
+                <img src="assets/images/payment/etisalat.png" alt="">
+                <span class="fw-bold">01153361487</span>
+              </div>
+            </div>
+
+          </div>
+          <div class="pay-form cash-form" *ngIf="active2">
+            <div class="instapay-parent">
+              <div class="head">
+                <img loading="lazy" src="assets/images/payment/instapay.webp" alt="">
+              </div>
+              <div class="insta-details">
+                <div class="phone">
+                  <i class="fa-solid fa-mobile-screen-button icon"></i>
+                  <span class="fw-bold">01067392153</span>
+                </div>
+                <div class="url">
+                  <i class="fa-solid fa-at icon"></i>
+                  <span class="fw-bold">AhmedMano@instapay</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pay-form coupon" *ngIf="active3">
+            <form [formGroup]="CouponForm" (ngSubmit)="discountSubmit()">
+              <div>
+                <label>{{"DISCOUNT" |translate}}</label>
+                <input [class.invalid]="CouponForm.get('coupon')?.invalid && CouponSubmitted" formControlName="coupon"
+                  class="form-control" [placeholder]="'ENTER_DISCOUNT' |translate" type="text" />
+                <div *ngIf="CouponForm.get('coupon')?.invalid && CouponSubmitted" class="error">{{"ENTER_COUPON"
+                  |translate}}</div>
+              </div>
+
+              <div class="mx-auto w-100 mt-4 visa-button d-flex justify-content-center">
+                <button class="btn-1 w-100" type="submit">{{"APPLY" |translate}}</button>
+              </div>
+            </form>
+          </div>
+          <div class="pay-form receipt" *ngIf="active4">
+            <form [formGroup]="receiptForm" (ngSubmit)="receiptSubmit()">
+              <div>
+                <label>{{"PAID_SMOUNT" |translate}}</label>
+                <input [class.invalid]="receiptForm.get('money')?.invalid && receiptSubmitted" formControlName="money"
+                  class="form-control" [placeholder]="'PAID_SMOUNT' |translate" type="number" />
+                <div *ngIf="receiptForm.get('money')?.invalid && receiptSubmitted" class="error">{{"ENTER_MONEY"
+                  |translate}}</div>
+              </div>
+              <div class="image mt-4">
+                <label class="w-100">{{"RECIPT_IMAGE" |translate}}</label>
+                <div class="image-container">
+                  <img [src]="logoPreview" alt="" (click)="fileInput1.click()">
+                  <span class="add-img rounded-circle" (click)="fileInput1.click()">+</span>
+                </div>
+                <input type="file" style="display: none;" id="image1" formControlName="image"
+                  (change)="onFileSelected($event)" #fileInput1 class="form-control"
+                  accept=".png, .jpg, .jpeg , .gif" />
+                <div *ngIf="receiptForm.get('image')?.invalid && receiptSubmitted" class="error">{{ "ENTER_IMAGE" |
+                  translate }}</div>
+              </div>
+
+              <div class="mx-auto w-100 mt-4 visa-button d-flex justify-content-center">
+                <button class="btn-1 w-100" type="submit">{{"SEND" |translate}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
