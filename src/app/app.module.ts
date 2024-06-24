@@ -31,7 +31,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ListboxModule } from 'primeng/listbox';
+import { DatePipe } from '@angular/common';
+import { CustomDatePipe } from './core/pipes/date.pipe';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../assets/i18n/', '.json');
 }
@@ -72,7 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatProgressBarModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {

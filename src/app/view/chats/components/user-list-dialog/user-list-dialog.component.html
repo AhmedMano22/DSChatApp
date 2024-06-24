@@ -1,5 +1,5 @@
-<mat-dialog-content>
-  <h1 mat-dialog-title>New Chat</h1>
+<mat-dialog-content dir="rtl">
+  <h1 mat-dialog-title>{{ "NEW_CHAT" | translate }}</h1>
   <!-- Search Bar -->
   <div>
     <mat-form-field
@@ -9,7 +9,7 @@
       <mat-icon matPrefix>search</mat-icon>
       <input
         matInput
-        placeholder="Search users"
+        placeholder="{{ 'SEARCH_NAME' | translate }}"
         [formControl]="searchControl"
       />
     </mat-form-field>
@@ -19,11 +19,11 @@
         *ngFor="let user of filteredUsers$ | async"
         (click)="selectUser(user)"
       >
+        <p mat-line>{{ user.displayName }}</p>
         <img
           matListItemAvatar
           [src]="user.photoURL || '../../../assets/images/image.png'"
         />
-        <p mat-line>{{ user.displayName }}</p>
       </mat-list-item>
     </mat-list>
   </div>

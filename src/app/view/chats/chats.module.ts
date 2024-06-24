@@ -13,8 +13,12 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { ListboxModule } from 'primeng/listbox';
+import { CustomDatePipe } from 'src/app/core/pipes/date.pipe';
+import { ScrollingModule } from '@angular/cdk/scrolling'; // Import ScrollingModule
+
 @NgModule({
   declarations: [
+    CustomDatePipe,
     ChatsComponent,
     MainComponent,
     ConfirmDeleteDialogComponent,
@@ -23,6 +27,7 @@ import { ListboxModule } from 'primeng/listbox';
   ],
   imports: [
     CommonModule,
+    ScrollingModule,
     ChatsRoutingModule,
     SharedModule,
     TranslateModule,
