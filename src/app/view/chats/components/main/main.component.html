@@ -41,13 +41,17 @@
               <img
                 class="chat-avatar"
                 [src]="
-                  chat.chatPic ? chat.chatPic : '../../../assets/images/image.png'
+                  chat.chatPic
+                    ? chat.chatPic
+                    : '../../../assets/images/image.png'
                 "
               />
               <div class="chat-info">
                 <div class="chat-title">
                   <span class="chat-name">{{ chat.chatName }}</span>
-                  <span class="chat-date" dir="ltr">{{ chat.lastMessageDate | date }}</span>
+                  <span class="chat-date" dir="ltr">{{
+                    chat.lastMessageDate | date
+                  }}</span>
                 </div>
                 <div class="chat-message">
                   {{ chat.lastMessage | slice : 0 : 33 }}
@@ -83,10 +87,10 @@
           height="35"
           style="border-radius: 50%"
         />
-        <h2>{{ selectedChat.chatName }}</h2>
+        <h4>{{ selectedChat.chatName }}</h4>
       </div>
       <ng-template #noChatSelected>
-        <h2>{{ "MESSAGES" | translate }}</h2>
+        <h4>{{ "MESSAGES" | translate }}</h4>
       </ng-template>
       <mat-divider></mat-divider>
       <div #chatContainer class="chat-area">
@@ -114,7 +118,7 @@
                   [src]="message.imageUrl"
                   style="max-width: 100%; height: auto"
                 />
-                <div class="chat-time">
+                <div class="chat-time" dir="ltr">
                   <span *ngIf="message.edited" class="edited-badge"
                     >(edited)</span
                   >
@@ -168,7 +172,7 @@
         </ng-container>
       </div>
       <div
-        class="context-menu d-flex align-items-center justify-content-center"
+        class="context-menu"
         [ngStyle]="contextMenuStyle"
         *ngIf="showContextMenu"
       >
@@ -178,14 +182,14 @@
             *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
             (click)="editMessage()"
           >
-            <mat-icon>edit</mat-icon> Edit
+            {{ "EDIT" | translate }}
           </button>
           <button
             mat-menu-item
             *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
             (click)="confirmDeleteMessage()"
           >
-            <mat-icon>delete</mat-icon> Delete
+            {{ "DELETE" | translate }}
           </button>
         </ng-container>
       </div>

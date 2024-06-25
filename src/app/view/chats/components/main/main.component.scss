@@ -81,7 +81,6 @@ section {
         cursor: default;
         transition: background-color 0.3s ease, transform 0.3s ease;
         will-change: background-color, transform;
-
         &:hover {
           border-radius: 10px;
           background-color: rgba(0, 0, 0, 0.1);
@@ -121,7 +120,7 @@ section {
           .unread-count {
             position: absolute;
             bottom: 10px;
-            right: 10px;
+            left: 10px;
             background-color: #9a83da;
             color: #f9eeee;
             aspect-ratio: 1/1;
@@ -135,14 +134,13 @@ section {
   }
   > .messages {
     width: 70%;
-    padding: 24px;
+    padding: 5px 24px;
     background: rgba(0, 0, 0, 0.05);
 
     .messages-header {
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-bottom: 8px;
       chat > img {
         border-radius: 50%;
         object-fit: cover;
@@ -150,13 +148,15 @@ section {
         height: 35px;
       }
 
-      > h2 {
+      > h4 {
+        font-size: 1.5 rem;
+        font-weight: 600;
         margin: 0;
       }
     }
 
     .chat-area {
-      height: calc(100vh - 330px);
+      height: calc(100vh - 290px);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -234,10 +234,26 @@ section {
         }
       }
     }
-
+    .context-menu {
+      position: absolute;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: none;
+        text-align: left;
+        cursor: pointer;
+        &:hover {
+          background-color: #f1f1f1;
+        }
+      }
+    }
     .input-area {
-      padding-top: 16px;
-      padding-bottom: 8px;
       position: relative;
       .mat-form {
         .button-group {
@@ -255,25 +271,25 @@ section {
         }
       }
     }
-  }
-}
-
-.context-menu {
-  position: absolute;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: none;
-    text-align: left;
-    cursor: pointer;
-    &:hover {
-      background-color: #f1f1f1;
+    .splash-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      .splash-logo {
+        max-width: 200px;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+      }
+      p {
+        font-size: 1rem;
+        color: #666;
+      }
     }
   }
 }

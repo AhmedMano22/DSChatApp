@@ -113,7 +113,6 @@
   "PHONE_NUMBER": "رقم الهاتف",
   "ADRESS": "العنوان",
   "SAVE": "حفظ",
-
   "CHATS": "الدردشات",
   "CHATS_SEARCH": "بحث الدردشات",
   "WRITE_MESSAGE": "اكتب رسالتك",
@@ -125,5 +124,7 @@
   "CANCEL": "إلغاء",
   "DELETE_CONFIRMATION": "هل أنت متأكد أنك تريد حذف هذه الرسالة؟",
   "CONFIRM_DELETE": "تأكيد الحذف",
-  "DELETE": "حذف"
+  "DELETE": "حذف",
+  "CHAT_WELCOME": "اهلا ومرحباً بك في المنصة",
+  "CHAT_WELCOME_SUB": "اختر شات و ابدء المراسلة"
 }
