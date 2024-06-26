@@ -14,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { ListboxModule } from 'primeng/listbox';
 import { CustomDatePipe } from 'src/app/core/pipes/date.pipe';
-import { ScrollingModule } from '@angular/cdk/scrolling'; // Import ScrollingModule
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SplashDesignComponent } from './components/splash-design/splash-design.component'; // Import ScrollingModule
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling'; // Import ScrollingMod
     ConfirmDeleteDialogComponent,
     ImageUploadProgressDialogComponent,
     UserListDialogComponent,
+    SplashDesignComponent,
   ],
   imports: [
     CommonModule,

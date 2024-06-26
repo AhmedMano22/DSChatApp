@@ -1,5 +1,6 @@
 import {
   AfterViewChecked,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
@@ -30,6 +31,7 @@ import { UserListDialogComponent } from '../user-list-dialog/user-list-dialog.co
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent implements AfterViewChecked {
   @ViewChild('imageInput') imageInput!: ElementRef<HTMLInputElement>;
@@ -143,12 +145,12 @@ export class MainComponent implements AfterViewChecked {
               .subscribe(() => {
                 this.chatsService
                   .addReaction(chatId, message.id, emoji, userId)
-                  .subscribe();
+                  .subscribe(() => this.showReactionMenu = false);
               });
           } else {
             this.chatsService
               .addReaction(chatId, message.id, emoji, userId)
-              .subscribe();
+              .subscribe(() => this.showReactionMenu = false);
           }
         }
       }
@@ -228,24 +230,30 @@ export class MainComponent implements AfterViewChecked {
   contextMenuStyle = { top: '0px', left: '0px' };
   showContextMenu = false;
   selectedMessage: Message | null = null;
+  reactionMenuStyle = { top: '0px', left: '0px' };
+  showReactionMenu = false;
 
   ngOnInit(): void {
     this.messages$ = this.chatListControl.valueChanges.pipe(
       switchMap((chatId) => {
-        return this.user$.pipe(
-          take(1),
-          switchMap((user) => {
-            if (chatId && user) {
-              this.chatsService.resetUnreadCount(chatId, user.uid).subscribe();
-              return this.chatsService.getChatMessages$(chatId);
-            }
-            return of([]);
-          })
-        );
+        if (chatId) {
+          return this.chatsService.getChatMessages$(chatId);
+        }
+        return of([]);
       })
     );
 
-    this.messages$.subscribe(() => {});
+    // Ensure messages$ observable updates whenever selectedChatId changes
+    this.chatListControl.valueChanges.subscribe((chatId) => {
+      this.selectedChatId = chatId;
+      this.messages$ = this.chatsService.getChatMessages$(chatId!);
+      this.cdr.detectChanges();
+    });
+
+    this.messages$.subscribe(() => {
+      this.scrollToBottom();
+    });
+
     this.cdr.detectChanges();
     this.scrollToBottom();
   }
@@ -254,12 +262,14 @@ export class MainComponent implements AfterViewChecked {
     this.scrollToBottom();
   }
 
-  scrollToBottom(): void {
-    try {
-      this.chatContainer.nativeElement.scrollTop =
-        this.chatContainer.nativeElement.scrollHeight;
-    } catch (err) {
-      console.error(err);
+  private scrollToBottom(): void {
+    if (this.chatContainer) {
+      try {
+        this.chatContainer.nativeElement.scrollTop =
+          this.chatContainer.nativeElement.scrollHeight;
+      } catch (error) {
+        console.error('Error in scrollToBottom:', error);
+      }
     }
   }
 
@@ -267,6 +277,9 @@ export class MainComponent implements AfterViewChecked {
   onClick(event: MouseEvent) {
     if (!this.isClickInsideEmojiPicker(event)) {
       this.showEmojiPicker = false;
+    }
+    if (!this.isClickInsideReactionMenu(event)) {
+      this.showReactionMenu = false;
     }
     this.showContextMenu = false;
   }
@@ -277,6 +290,12 @@ export class MainComponent implements AfterViewChecked {
     return emojiPicker.contains(event.target as Node);
   }
 
+  private isClickInsideReactionMenu(event: MouseEvent): boolean {
+    const reactionMenu = document.querySelector('.reaction-menu');
+    if (!reactionMenu) return false;
+    return reactionMenu.contains(event.target as Node);
+  }
+
   onRightClick(event: MouseEvent, message: Message) {
     event.preventDefault();
     this.selectedMessage = message;
@@ -285,6 +304,16 @@ export class MainComponent implements AfterViewChecked {
       left: `${event.clientX}px`,
     };
     this.showContextMenu = true;
+  }
+
+  onReactionClick(event: MouseEvent, message: Message) {
+    event.stopPropagation();
+    this.selectedMessage = message;
+    this.reactionMenuStyle = {
+      top: `${event.clientY}px`,
+      left: `${event.clientX}px`,
+    };
+    this.showReactionMenu = true;
   }
 
   createChat(user: ProfileUser) {

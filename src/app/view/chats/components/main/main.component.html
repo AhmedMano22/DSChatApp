@@ -73,60 +73,61 @@
       </ng-container>
     </div>
     <div class="messages">
-      <div
-        class="messages-header d-flex"
+      <ng-container
         *ngIf="selectedChat$ | async as selectedChat; else noChatSelected"
       >
-        <img
-          [src]="
-            selectedChat.chatPic
-              ? selectedChat.chatPic
-              : '../../../assets/images/image.png'
-          "
-          width="35"
-          height="35"
-          style="border-radius: 50%"
-        />
-        <h4>{{ selectedChat.chatName }}</h4>
-      </div>
-      <ng-template #noChatSelected>
-        <h4>{{ "MESSAGES" | translate }}</h4>
-      </ng-template>
-      <mat-divider></mat-divider>
-      <div #chatContainer class="chat-area">
-        <ng-container *ngIf="user$ | async as currentUser">
-          <ng-container *ngIf="messages$ | async as messages">
-            <div
-              class="chat-bubble-container"
-              [ngClass]="{ sender: message.senderId === currentUser.uid }"
-              *ngFor="let message of messages"
-            >
+        <div class="messages-header d-flex">
+          <img
+            [src]="
+              selectedChat.chatPic
+                ? selectedChat.chatPic
+                : '../../../assets/images/image.png'
+            "
+            width="35"
+            height="35"
+            style="border-radius: 50%"
+          />
+          <h4>{{ selectedChat.chatName }}</h4>
+        </div>
+        <mat-divider></mat-divider>
+        <div #chatContainer class="chat-area">
+          <ng-container *ngIf="user$ | async as currentUser">
+            <ng-container *ngIf="messages$ | async as messages">
               <div
-                class="chat-bubble"
-                (contextmenu)="onRightClick($event, message)"
+                class="chat-bubble-container"
+                [ngClass]="{ sender: message.senderId === currentUser.uid }"
+                *ngFor="let message of messages"
               >
                 <div
-                  class="chat-message"
-                  *ngIf="message.text"
-                  style="font-size: 16px"
+                  class="chat-bubble"
+                  (contextmenu)="onRightClick($event, message)"
                 >
-                  {{ message.text }}
-                </div>
-                <img
-                  class="chat-message"
-                  *ngIf="message.imageUrl"
-                  [src]="message.imageUrl"
-                  style="max-width: 100%; height: auto"
-                />
-                <div class="chat-time" dir="ltr">
-                  <span *ngIf="message.edited" class="edited-badge"
-                    >(edited)</span
+                  <div
+                    class="chat-message"
+                    *ngIf="message.text"
+                    style="font-size: 16px"
                   >
-                  {{ message.date | date }}
-                </div>
-                <div class="reactions">
-                  <button (click)="toggleReactionsVisibility(message)">
-                    {{ getTotalReactionsCount(message) }}
+                    {{ message.text }}
+                  </div>
+                  <img
+                    class="chat-message"
+                    *ngIf="message.imageUrl"
+                    [src]="message.imageUrl"
+                    style="max-width: 100%; height: auto"
+                  />
+                  <div class="chat-time" dir="ltr">
+                    <span *ngIf="message.edited" class="edited-badge"
+                      >(edited)</span
+                    >
+                    {{ message.date | date }}
+                  </div>
+                  <button
+                    class="reaction-button"
+                    (click)="onReactionClick($event, message)"
+                  >
+                    <ng-container *ngIf="getTotalReactionsCount(message) > 1">
+                      {{ getTotalReactionsCount(message) }}
+                    </ng-container>
                     <ng-container
                       *ngIf="
                         getUserReactionSvgPaths(message).length > 0;
@@ -148,103 +149,109 @@
                       <i class="bx bx-smile"></i>
                     </ng-template>
                   </button>
-                  <div
-                    *ngIf="message.showReactions"
-                    style="padding: 0 10px 10px"
-                  >
-                    <span
-                      style="cursor: pointer; margin: 0 5px"
-                      *ngFor="let emoji of getAvailableReactions()"
-                      (click)="reactToMessage(message, emoji.name)"
-                    >
-                      <img
-                        [src]="emoji.svgPath"
-                        alt="reaction icon"
-                        width="24"
-                        height="24"
-                      />
-                    </span>
-                  </div>
                 </div>
               </div>
-            </div>
+            </ng-container>
           </ng-container>
-        </ng-container>
-      </div>
-      <div
-        class="context-menu"
-        [ngStyle]="contextMenuStyle"
-        *ngIf="showContextMenu"
-      >
-        <ng-container *ngIf="user$ | async as user">
-          <button
-            mat-menu-item
-            *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
-            (click)="editMessage()"
-          >
-            {{ "EDIT" | translate }}
-          </button>
-          <button
-            mat-menu-item
-            *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
-            (click)="confirmDeleteMessage()"
-          >
-            {{ "DELETE" | translate }}
-          </button>
-        </ng-container>
-      </div>
-      <div class="input-area">
-        <mat-form-field class="w-100 d-flex mat-form" appearance="outline">
-          <input
-            matInput
-            placeholder="{{ 'WRITE_MESSAGE' | translate }}"
-            [formControl]="messageControl"
-            (keydown.enter)="sendMessage()"
-            class="input-field"
-          />
-          <div matSuffix class="button-group">
-            <ng-container *ngIf="isEditing">
-              <button mat-icon-button (click)="clearEditing()">
-                <mat-icon>clear</mat-icon>
-              </button>
-              <button mat-icon-button (click)="doneEditing()">
-                <mat-icon>done</mat-icon>
-              </button>
-            </ng-container>
-            <ng-container *ngIf="!isEditing">
-              <button
-                mat-icon-button
-                (click)="toggleEmojiPicker($event)"
-                class="emoji-button"
-              >
-                <mat-icon>insert_emoticon</mat-icon>
-              </button>
-              <button mat-icon-button (click)="selectImage()">
-                <mat-icon>upload</mat-icon>
-              </button>
-              <button mat-icon-button (click)="sendMessage()">
-                <mat-icon style="transform: rotate(180deg)">send</mat-icon>
-              </button>
-            </ng-container>
-          </div>
-          <input
-            type="file"
-            #imageInput
-            style="display: none"
-            (change)="uploadImage($event)"
-          />
-        </mat-form-field>
-        <div *ngIf="showEmojiPicker" class="emoji-picker">
-          <emoji-mart
-            set="facebook"
-            [darkMode]="false"
-            [emojiSize]="30"
-            (emojiClick)="addEmoji($event)"
-            [style.display]="showEmojiPicker ? 'block' : 'none'"
-            [style]="{ position: 'absolute', bottom: '85px', left: '20px' }"
-          ></emoji-mart>
         </div>
-      </div>
+        <div
+          class="reaction-menu"
+          [ngStyle]="reactionMenuStyle"
+          *ngIf="showReactionMenu"
+        >
+          <ng-container *ngIf="selectedMessage">
+            <span
+              style="cursor: pointer; margin: 0 5px"
+              *ngFor="let emoji of getAvailableReactions()"
+              (click)="reactToMessage(selectedMessage, emoji.name)"
+            >
+              <img
+                [src]="emoji.svgPath"
+                alt="reaction icon"
+                width="24"
+                height="24"
+              />
+            </span>
+          </ng-container>
+        </div>
+        <div
+          class="context-menu"
+          [ngStyle]="contextMenuStyle"
+          *ngIf="showContextMenu"
+        >
+          <ng-container *ngIf="user$ | async as user">
+            <button
+              mat-menu-item
+              *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
+              (click)="editMessage()"
+            >
+              {{ "EDIT" | translate }}
+            </button>
+            <button
+              mat-menu-item
+              *ngIf="canEditOrDelete(selectedMessage!, user.uid)"
+              (click)="confirmDeleteMessage()"
+            >
+              {{ "DELETE" | translate }}
+            </button>
+          </ng-container>
+        </div>
+        <div class="input-area">
+          <mat-form-field class="w-100 d-flex mat-form" appearance="outline">
+            <input
+              matInput
+              placeholder="{{ 'WRITE_MESSAGE' | translate }}"
+              [formControl]="messageControl"
+              (keydown.enter)="sendMessage()"
+              class="input-field"
+            />
+            <div matSuffix class="button-group">
+              <ng-container *ngIf="isEditing">
+                <button mat-icon-button (click)="clearEditing()">
+                  <mat-icon>clear</mat-icon>
+                </button>
+                <button mat-icon-button (click)="doneEditing()">
+                  <mat-icon>done</mat-icon>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="!isEditing">
+                <button
+                  mat-icon-button
+                  (click)="toggleEmojiPicker($event)"
+                  class="emoji-button"
+                >
+                  <mat-icon>insert_emoticon</mat-icon>
+                </button>
+                <button mat-icon-button (click)="selectImage()">
+                  <mat-icon>upload</mat-icon>
+                </button>
+                <button mat-icon-button (click)="sendMessage()">
+                  <mat-icon style="transform: rotate(180deg)">send</mat-icon>
+                </button>
+              </ng-container>
+            </div>
+            <input
+              type="file"
+              #imageInput
+              style="display: none"
+              (change)="uploadImage($event)"
+            />
+          </mat-form-field>
+          <div *ngIf="showEmojiPicker" class="emoji-picker">
+            <emoji-mart
+              set="facebook"
+              [darkMode]="false"
+              [emojiSize]="30"
+              (emojiClick)="addEmoji($event)"
+              [style.display]="showEmojiPicker ? 'block' : 'none'"
+              [style]="{ position: 'absolute', bottom: '85px', left: '20px' }"
+            ></emoji-mart>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
+  <ng-template #noChatSelected>
+    <app-splash-design></app-splash-design>
+  </ng-template>
 </section>

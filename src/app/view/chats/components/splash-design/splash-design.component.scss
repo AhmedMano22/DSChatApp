@@ -1,0 +1,14 @@
+/* splash-design.component.scss */
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  .splash-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+}
